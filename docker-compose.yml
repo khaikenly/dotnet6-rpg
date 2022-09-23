@@ -1,0 +1,18 @@
+version: "3.9"
+
+services:
+  db:
+    image: "mcr.microsoft.com/mssql/server"
+    container_name: mssql
+    environment:
+      SA_PASSWORD: "Khaidev_@123"
+      ACCEPT_EULA: "Y"
+    ports:
+      - "1433:1433"
+    volumes:
+      - mssql-database:/var/lib/mssql
+      # - ./bk:/var/opt/mssql/backup      # thư  mục chứa file backup
+
+volumes:
+  mssql-database:
+    driver: local
